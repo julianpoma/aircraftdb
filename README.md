@@ -8,8 +8,8 @@ January 2018.
 
 ### Laravel project
 
-* Set up your own DB settings on the .env file.
 * `cd aircraftdb`
+* Set up your own DB settings on the .env file.
 * Run `composer install`
 * Run `php artisan migrate --seed`
 * Run `php artisan serve`
