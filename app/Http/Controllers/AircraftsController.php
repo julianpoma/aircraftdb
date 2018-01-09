@@ -33,15 +33,8 @@ class AircraftsController extends Controller
     }
 
     public function new(Request $request) {
-        $aircraft = new Aircraft();
 
-        $aircraft->manufacturer = $request->input('manufacturer');
-        $aircraft->model = $request->input('model');
-        $aircraft->engines = $request->input('engines');
-        $aircraft->range = $request->input('range');
-        $aircraft->ceiling = $request->input('ceiling');
-        
-        $aircraft->save();
+        $aircraft = Aircraft::create($request->all());
 
         return response()->json(['aircraft' => $aircraft], 201);
     }
@@ -58,10 +51,9 @@ class AircraftsController extends Controller
         else {
             $aircraft->update($request->input()); 
             return response()->json([
-                'message' => 'Aircraft updated.',
+                'message' => 'Aircraft updated',
                 'aircraft' => $aircraft
             ], 200);
-            
         }
     }
 
