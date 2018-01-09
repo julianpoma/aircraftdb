@@ -6,10 +6,17 @@ January 2018.
 
 ## Try it out
 
-### Laravel project
+### Laravel backend
 
 * `cd aircraftdb`
 * Set up your own DB settings on the .env file.
 * Run `composer install`
 * Run `php artisan migrate --seed`
 * Run `php artisan serve`
+
+### Angular froentend
+
+* `cd aircraftdb\angular`
+* Run `npm install`
+* Run `ng serve`
+* Navigate to `http://localhost:4200/`
