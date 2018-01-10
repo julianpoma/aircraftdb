@@ -16,12 +16,12 @@ export class AircraftComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(
-      params => this.aircraftService.getAircraft(params.id)
-      .then (
-      aircraft => this.aircraft = aircraft
-      )
-      .catch(error => console.log(error))
+      params => this.aircraftService
+        .getAircraft(params.id)
+        .subscribe(
+          aircraft => this.aircraft = aircraft,
+          error => console.log(error)
+        )
     );
   }
-
 }

@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { Aircraft } from "./aircraft";
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AircraftService {
@@ -11,18 +12,20 @@ export class AircraftService {
     constructor(private http: Http) {
     }
 
-    getAircrafts(): Promise<Aircraft[]> {
+    getAircrafts() {
         return this.http.get(this.url +'aircraft')
-            .toPromise()
-            .then(response => response.json().aircrafts)
-            .catch(error => console.log(error));
+            .map(
+                response => response.json().aircrafts,
+                error => console.log(error)
+            );
     }
 
-    getAircraft(id): Promise<Aircraft> {
+    getAircraft(id) {
         return this.http.get(this.url + 'aircraft/' + id)
-            .toPromise()
-            .then(response => response.json().aircraft)
-            .catch(error => console.log(error));
+            .map(
+                response => response.json().aircraft,
+                error => console.log(error)
+            );
     }
 
 }
