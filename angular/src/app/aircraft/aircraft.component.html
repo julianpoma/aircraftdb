@@ -1,3 +1,27 @@
-<p>
-  aircraft works!
-</p>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Aircraft detail</h1>
+    <div class="alert alert-info" *ngIf="!aircraft">
+      Getting aircraft data...
+    </div>
+    <form *ngIf="aircraft">
+      <div class="form-group">
+        <input type="text" value="{{ aircraft.manufacturer }}"class="form-control" name="manufacturer" id="manufacturer">
+      </div>
+      <div class="form-group">
+        <input type="text" value="{{ aircraft.model }}" class="form-control" name="model" id="model">
+      </div>
+      <div class="form-group">
+        <input type="text" value="{{ aircraft.engines }}" class="form-control" name="engines" id="engines">
+      </div>
+      <div class="form-group">
+        <input type="number" value="{{ aircraft.range }}" class="form-control" name="range" id="range">
+      </div>
+      <div class="form-group">
+        <input type="number" value="{{ aircraft.ceiling }}" class="form-control" name="ceiling" id="ceiling">
+      </div>
+      <button class="btn btn-warning float-right">Submit edit</button>
+      <button class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>

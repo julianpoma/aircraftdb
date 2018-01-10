@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <h1>List of all aircrafts</h1>
+    <br>
     <table class="table">
       <thead class="thead-inverse">
         <tr>
@@ -19,10 +20,10 @@
           <td>{{ aircraft.engines }}</td>
           <td>{{ aircraft.range }}</td>
           <td>{{ aircraft.ceiling }}</td>
-          <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+          <td><a [routerLink]="['/aircraft', aircraft.id]" class="btn btn-info btn-sm">Edit</a></td>
         </tr>
       </tbody>
     </table>
-    <a href="#" class="btn btn-success float-right">Add new</a>
+    <a [routerLink]="['/aircraft/new']" class="btn btn-success float-right">Add new</a>
   </div>
 </div>

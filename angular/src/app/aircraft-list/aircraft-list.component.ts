@@ -18,6 +18,5 @@ export class AircraftListComponent implements OnInit {
     .then(
       aircrafts => this.aircrafts = aircrafts
     )
-
   }
 }

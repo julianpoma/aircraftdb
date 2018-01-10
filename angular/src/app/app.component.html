@@ -7,13 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Sign In
+        <a class="nav-link" routerLink="/">Sign In
           <span class="sr-only">(current)</span>
         </a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" href="#">Show aircrafts
+        <a class="nav-link" routerLink="/aircrafts">Show aircrafts
           <span class="sr-only">(current)</span>
         </a>
       </li>
@@ -21,6 +21,5 @@
   </div>
 </nav>
 <div class="container">
-  <!-- <app-sign-in></app-sign-in> -->
-  <app-aircraft-list></app-aircraft-list>
+  <router-outlet></router-outlet>
 </div>

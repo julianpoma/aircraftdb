@@ -15,7 +15,14 @@ export class AircraftService {
         return this.http.get(this.url +'aircraft')
             .toPromise()
             .then(response => response.json().aircrafts)
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
+    }
+
+    getAircraft(id): Promise<Aircraft> {
+        return this.http.get(this.url + 'aircraft/' + id)
+            .toPromise()
+            .then(response => response.json().aircraft)
+            .catch(error => console.log(error));
     }
 
 }

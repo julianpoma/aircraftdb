@@ -8,18 +8,21 @@ import { AircraftListComponent } from './aircraft-list/aircraft-list.component';
 import { AircraftComponent } from './aircraft/aircraft.component';
 import { AircraftService } from './aircraft.service';
 import { HttpModule } from '@angular/http';
-
+import { routing } from './app.routing';
+import { NewAircraftComponent } from './new-aircraft/new-aircraft.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     AircraftListComponent,
-    AircraftComponent
+    AircraftComponent,
+    NewAircraftComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [AircraftService],
   bootstrap: [AppComponent]
