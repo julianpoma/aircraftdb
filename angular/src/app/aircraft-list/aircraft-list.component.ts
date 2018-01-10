@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Aircraft } from '../aircraft'
 import { AircraftService } from '../aircraft.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-aircraft-list',
