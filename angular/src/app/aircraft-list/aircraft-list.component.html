@@ -1,5 +1,28 @@
 <div class="row">
-  <div class="col-md-6 offset-md-3">
+  <div class="col-md-8 offset-md-2">
     <h1>List of all aircrafts</h1>
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Manufacturer</th>
+          <th>Model</th>
+          <th>Engines</th>
+          <th>Range</th>
+          <th>Ceiling</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aircraft of aircrafts">
+          <td>{{ aircraft.manufacturer }}</td>
+          <td>{{ aircraft.model }}</td>
+          <td>{{ aircraft.engines }}</td>
+          <td>{{ aircraft.range }}</td>
+          <td>{{ aircraft.ceiling }}</td>
+          <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="#" class="btn btn-success float-right">Add new</a>
   </div>
 </div>

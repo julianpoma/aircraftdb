@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Aircraft } from '../aircraft'
+import { AircraftService } from '../aircraft.service';
 
 @Component({
   selector: 'app-aircraft-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AircraftListComponent implements OnInit {
 
-  constructor() { }
+  aircrafts: Aircraft[];
+
+  constructor(private aircraftService: AircraftService) { }
 
   ngOnInit() {
-  }
+    this.aircraftService.getAircrafts()
+    .then(
+      aircrafts => this.aircrafts = aircrafts
+    )
 
+  }
 }
