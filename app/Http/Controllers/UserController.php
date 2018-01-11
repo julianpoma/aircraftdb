@@ -9,17 +9,6 @@ use Validator;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('jwt.auth', ['except' => ['login']]);
-    }
-
-    /**
-     * Authenticate an user.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -46,12 +35,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Get the user by token.
-     *
-     * @param  Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function getUser(Request $request)
     {
         $user = JWTAuth::parseToken()->authenticate();

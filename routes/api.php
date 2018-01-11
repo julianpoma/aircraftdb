@@ -14,23 +14,28 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/aircraft', [
-    'uses' => 'AircraftsController@all'
+    'uses' => 'AircraftsController@all',
+    'middleware' => 'jwt.auth'
 ]);
 
 Route::get('/aircraft/{id}', [
-    'uses' => 'AircraftsController@show'
+    'uses' => 'AircraftsController@show',
+    'middleware' => 'jwt.auth'
 ]);
 
 Route::post('/aircraft', [
-    'uses' => 'AircraftsController@new'
+    'uses' => 'AircraftsController@new',
+    'middleware' => 'jwt.auth'
 ]);
 
 Route::put('/aircraft/{id}', [
-    'uses' => 'AircraftsController@edit'
+    'uses' => 'AircraftsController@edit',
+    'middleware' => 'jwt.auth'
 ]);
 
 Route::delete('/aircraft/{id}', [
-    'uses' => 'AircraftsController@delete'
+    'uses' => 'AircraftsController@delete',
+    'middleware' => 'jwt.auth'
 ]);
 
 Route::post('/login', [
@@ -38,11 +43,13 @@ Route::post('/login', [
 ]);
 
 Route::get('/user', [
-    'uses' => 'UserController@getUser'
+    'uses' => 'UserController@getUser',
+    'middleware' => 'jwt.auth'
 ]);
 
 Route::get('/logout', [
-    'uses' => 'UserController@logout'
+    'uses' => 'UserController@logout',
+    'middleware' => 'jwt.auth'
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
