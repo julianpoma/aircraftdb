@@ -12,6 +12,7 @@ import { routing } from './app.routing';
 import { NewAircraftComponent } from './new-aircraft/new-aircraft.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { AuthService } from './auth.service';
     routing,
     FormsModule
   ],
-  providers: [AircraftService, AuthService],
+  providers: [AircraftService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

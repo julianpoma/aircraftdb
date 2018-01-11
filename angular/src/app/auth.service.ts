@@ -10,6 +10,8 @@ export class AuthService {
 
   }
 
+  isLoggedIn: Boolean;
+
   login(email:string, pass:string) {
     return this.http.post(
       'http://aircraft.io/api/login',
@@ -20,7 +22,10 @@ export class AuthService {
         return response.json().token;
       })
     .do(
-      (token) => {localStorage.setItem('token', token)}
+      (token) => {
+        localStorage.setItem('token', token);
+        this.isLoggedIn = true;
+      }
     )
   }
 }
