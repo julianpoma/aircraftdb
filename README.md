@@ -26,4 +26,6 @@ Login credentials:
 `email: test@test.com`
 `password: secret`
 
-Remember to run migrations, if not login user won't be created.
+Remember to run migrations with --seed, if not the "login user" won't be created.
+
+You can register a new user via Laravels views.

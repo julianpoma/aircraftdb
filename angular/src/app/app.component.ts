@@ -18,12 +18,13 @@ export class AppComponent {
     if (! this.authService.checkAuth()) {
       this.router.navigate(['login']);
     }
-    // else {
-    //   this.router.navigate(['']);
-    // }
   }
 
   logout() {
-    this.authService.logout();
+    this.authService.logout().subscribe(
+      resp => console.log(resp),
+      err => console.log(err),
+      () => console.log("Unsubscribed")
+    );
   }
 }

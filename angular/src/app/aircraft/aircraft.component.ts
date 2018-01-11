@@ -32,7 +32,6 @@ export class AircraftComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    console.log(f.value);
     this.aircraftService.editAircraft(this.actualId, f.value)
       .subscribe(
         response => console.log(response),
