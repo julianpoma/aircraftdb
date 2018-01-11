@@ -21,8 +21,5 @@ export class AircraftListComponent implements OnInit {
       aircrafts => this.aircrafts = aircrafts,
       error => console.log(error)
     );
-    if (this.auth.isLoggedIn) {
-      this.auth.isLoggedIn = true;
-    }
   }
 }

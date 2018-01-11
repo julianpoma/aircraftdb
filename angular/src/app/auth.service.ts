@@ -28,4 +28,17 @@ export class AuthService {
       }
     )
   }
+
+  checkAuth() {
+    if(localStorage.getItem('token')) {
+      this.isLoggedIn=true;
+      return true;
+    }
+    return false;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.isLoggedIn = false
+  }
 }

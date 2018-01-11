@@ -15,17 +15,15 @@ export class AppComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
-    if(localStorage.getItem('token')) {
-      this.router.navigate(['aircrafts']);
-      this.authService.isLoggedIn = true;
+    if (! this.authService.checkAuth()) {
+      this.router.navigate(['login']);
     }
-    else {
-      this.authService.isLoggedIn = false;
-    }
+    // else {
+    //   this.router.navigate(['']);
+    // }
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.authService.isLoggedIn = false;
+    this.authService.logout();
   }
 }

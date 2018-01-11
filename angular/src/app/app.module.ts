@@ -13,6 +13,7 @@ import { NewAircraftComponent } from './new-aircraft/new-aircraft.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { NotfoundComponent } from './auth/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthGuard } from './auth/auth.guard';
     SignInComponent,
     AircraftListComponent,
     AircraftComponent,
-    NewAircraftComponent
+    NewAircraftComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
