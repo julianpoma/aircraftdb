@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class AircraftsController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth:api', ['except' => ['some_function']]);
+
+        $this->middleware('jwt.auth'); //jwt.auth
+    }
+    
     public function all() {
         $aircrafts = Aircraft::all();
 

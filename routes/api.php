@@ -33,6 +33,18 @@ Route::delete('/aircraft/{id}', [
     'uses' => 'AircraftsController@delete'
 ]);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/login', [
+    'uses' => 'UserController@login'
+]);
+
+Route::get('/user', [
+    'uses' => 'UserController@getUser'
+]);
+
+Route::get('/logout', [
+    'uses' => 'UserController@logout'
+]);
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
