@@ -38,7 +38,21 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.isLoggedIn = false
+    return this.http.get(
+      'http://aircraft.io/api/logout',
+      { headers: new Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+    )
+    .map(
+    response => {
+      return response.json().message;
+    })
+    .do(
+      () => {
+        localStorage.removeItem('token');
+        this.isLoggedIn = false;
+      }
+    )
   }
+
+
 }
