@@ -15,8 +15,8 @@ export class AircraftService {
 
     getAircrafts() {
         return this.http.get(
-            this.url +'aircraft'
-            ,{ headers: new Headers({'Authorization': 'Bearer '+localStorage.getItem('token')})}
+            this.url +'aircraft',
+            { headers: new Headers({'Authorization': 'Bearer '+localStorage.getItem('token')})}
         )
         .map(
             response => response.json().aircrafts,
@@ -25,11 +25,13 @@ export class AircraftService {
     }
 
     getAircraft(id) {
-        return this.http.get(this.url + 'aircraft/' + id)
-            .map(
-                response => response.json().aircraft,
-                error => console.log(error)
-            );
+        return this.http.get(
+            this.url + 'aircraft/' + id,
+            { headers: new Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+        )
+        .map(
+            response => response.json().aircraft,
+            error => console.log(error)
+        );
     }
-
 }
