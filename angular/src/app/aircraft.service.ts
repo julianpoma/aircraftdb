@@ -34,4 +34,39 @@ export class AircraftService {
             error => console.log(error)
         );
     }
+
+    newAircraft(aircraft) {
+        return this.http.post(
+            this.url + 'aircraft',
+            aircraft,
+            { headers: new Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+        )
+        .map(
+            response => response.json(),
+            error => console.log(error)
+        );
+    }
+
+    deleteAircraft(id) {
+        return this.http.delete(
+            this.url + 'aircraft/' + id,
+            { headers: new Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+        )
+        .map(
+            response => response.json(),
+            error => console.log(error)
+        )
+    }
+
+    editAircraft (id, aircraft) {
+        return this.http.put(
+            this.url + 'aircraft/' + id,
+            aircraft,
+            { headers: new Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
+        )
+        .map(
+            response => response.json(),
+            error => console.log(error)
+        )
+    }
 }

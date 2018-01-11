@@ -4,24 +4,24 @@
     <div class="alert alert-info" *ngIf="!aircraft">
       Getting aircraft data...
     </div>
-    <form *ngIf="aircraft">
+    <form *ngIf="aircraft" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group">
-        <input type="text" value="{{ aircraft.manufacturer }}"class="form-control" name="manufacturer" id="manufacturer">
+        <input type="text" ngModel="{{ aircraft.manufacturer }}" class="form-control" name="manufacturer" id="manufacturer">
       </div>
       <div class="form-group">
-        <input type="text" value="{{ aircraft.model }}" class="form-control" name="model" id="model">
+        <input type="text" ngModel="{{ aircraft.model }}" class="form-control" name="model" id="model">
       </div>
       <div class="form-group">
-        <input type="text" value="{{ aircraft.engines }}" class="form-control" name="engines" id="engines">
+        <input type="text" ngModel="{{ aircraft.engines }}" class="form-control" name="engines" id="engines">
       </div>
       <div class="form-group">
-        <input type="number" value="{{ aircraft.range }}" class="form-control" name="range" id="range">
+        <input type="number" ngModel="{{ aircraft.range }}" class="form-control" name="range" id="range">
       </div>
       <div class="form-group">
-        <input type="number" value="{{ aircraft.ceiling }}" class="form-control" name="ceiling" id="ceiling">
+        <input type="number" ngModel="{{ aircraft.ceiling }}" class="form-control" name="ceiling" id="ceiling">
       </div>
-      <button class="btn btn-warning float-right">Submit edit</button>
-      <button class="btn btn-danger">Delete</button>
+      <button type="submit" class="btn btn-warning float-right">Submit edit</button>
     </form>
+    <button class="btn btn-danger" (click)="onDelete(aircraft.id)">Delete</button>
   </div>
 </div>
