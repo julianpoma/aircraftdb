@@ -2,18 +2,18 @@
   <div class="col-md-6 offset-md-3 color">
     <h1>Sign In to the Aircraft DB</h1>
     <hr>
-    <form>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon" style="width: 50px"><i class="fa fa-user-circle"></i></div>
-          <input type="text" class="form-control" name="email" id="email" placeholder="test@aircraftdb.com">
+          <input type="text" class="form-control" name="email" id="email" ngModel>
         </div>
       </div>
 
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon" style="width: 50px"><i class="fa fa-unlock"></i></div>
-          <input type="password" class="form-control" name="password" id="password" placeholder="••••••••••••">
+          <input type="password" class="form-control" name="password" id="password" ngModel>
         </div>
       </div>
 

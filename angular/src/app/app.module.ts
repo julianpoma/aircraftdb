@@ -10,6 +10,8 @@ import { AircraftService } from './aircraft.service';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { NewAircraftComponent } from './new-aircraft/new-aircraft.component';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import { NewAircraftComponent } from './new-aircraft/new-aircraft.component';
   imports: [
     BrowserModule,
     HttpModule,
-    routing
+    routing,
+    FormsModule
   ],
-  providers: [AircraftService],
+  providers: [AircraftService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

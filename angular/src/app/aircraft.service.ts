@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers } from "@angular/http";
 import { Aircraft } from "./aircraft";
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class AircraftService {
@@ -13,11 +14,14 @@ export class AircraftService {
     }
 
     getAircrafts() {
-        return this.http.get(this.url +'aircraft')
-            .map(
-                response => response.json().aircrafts,
-                error => console.log(error)
-            );
+        return this.http.get(
+            this.url +'aircraft'
+            ,{ headers: new Headers({'Authorization': 'Bearer '+localStorage.getItem('token')})}
+        )
+        .map(
+            response => response.json().aircrafts,
+            error => console.log(error)
+        );
     }
 
     getAircraft(id) {
