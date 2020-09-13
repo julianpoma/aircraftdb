@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AircraftService {
 
-    url = "http://aircraft.io/api/";
+    url = "http://localhost:8000/";
     
     constructor(private http: Http) {
     }

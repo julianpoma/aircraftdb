@@ -14,7 +14,7 @@ export class AuthService {
 
   login(email:string, pass:string) {
     return this.http.post(
-      'http://aircraft.io/api/login',
+      'http://localhost:8000/api/login',
       {email: email, password: pass}
     )
     .map(
@@ -39,7 +39,7 @@ export class AuthService {
 
   logout() {
     return this.http.get(
-      'http://aircraft.io/api/logout',
+      'http://localhost:8000/api/logout',
       { headers: new Headers({ 'Authorization': 'Bearer ' + localStorage.getItem('token') }) }
     )
     .map(
